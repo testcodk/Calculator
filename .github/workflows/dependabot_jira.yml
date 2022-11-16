@@ -6,13 +6,14 @@ jobs:
   syncSecurityAlerts:
     runs-on: ubuntu-latest
     steps:
-      - name: "Sync security alerts to Jira issues"
-        uses: reload/github-security-jira@v1.x
-        env:
+     - name: print
+       env:
           GH_SECURITY_TOKEN: ${{ secrets.GITHUBPT }}
           JIRA_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-          JIRA_HOST: https://keerthanatest.atlassian.net
-          JIRA_USER: keerthanagvsl64@gmail.com
-          JIRA_PROJECT: TES
-          JIRA_EPIC_LINK: TES-6
-        
+          JIRA_HOST: https://jira.sixt.com
+          JIRA_USER: ${{ secrets.USER }}
+       run:
+          echo "$GH_SECURITY_TOKEN"
+          echo "$JIRA_TOKEN"
+          echo "$JIRA_USER"
+       shell: bash
